@@ -119,11 +119,11 @@ class Food():
 def drawGrid(surface):
     for y in range(0, int(GRID_HEIGHT)):
         for x in range(0, int(GRID_WIDTH)):
-            if (x+y)%2 == 0: # for all even squares
+            if (x + y) % 2 == 0: # for all even squares
                 r = pygame.Rect((x * SQUARE_SIZE, y * SQUARE_SIZE), (SQUARE_SIZE, SQUARE_SIZE))
                 pygame.draw.rect(surface,(93, 216, 228), r)
             else: # for all odd squares
-                rr = pygame.Rect((x*SQUARE_SIZE, y*SQUARE_SIZE), (SQUARE_SIZE, SQUARE_SIZE))
+                rr = pygame.Rect((x * SQUARE_SIZE, y * SQUARE_SIZE), (SQUARE_SIZE, SQUARE_SIZE))
                 pygame.draw.rect(surface, (84, 194, 205), rr)
 
 
