@@ -3,7 +3,6 @@ import sys
 
 pygame.init()
 screen = pygame.display.set_mode((500, 500))
-surface = pygame.Surface(screen.get_size())
 clock = pygame.time.Clock()
 
 x = 0
@@ -15,11 +14,10 @@ while True:
             pygame.quit()
             sys.exit()
 
-    surface.fill(pygame.Color('white'))
+    screen.fill(pygame.Color('white'))
 
     r = pygame.Rect((x, y), (100, 100))
-    pygame.draw.rect(surface, pygame.Color('blue'), r)
-    screen.blit(surface, (0, 0))
+    pygame.draw.rect(screen, pygame.Color('blue'), r)
 
     pygame.display.update()
     clock.tick(60)

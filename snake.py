@@ -139,20 +139,18 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), 0, 32)
     framerate = 10 # Re-draw the screen 10 times every second
 
-    surface = pygame.Surface(screen.get_size())
-    surface = surface.convert()
-    drawGrid(surface)
+    drawGrid(screen)
 
     # Initialize snake & food (only need 1 instance of each)
     snake = Snake()
     food = Food()
 
-    myfont = pygame.font.SysFont("monospace",16)
+    myfont = pygame.font.SysFont("monospace", 16)
 
     while True:
         clock.tick(framerate) # Advance the clock
         snake.handle_keys() # Handle any key presses
-        drawGrid(surface) # Draw the grid (underneath snake & food)
+        drawGrid(screen) # Draw the grid (underneath snake & food)
         snake.move() # Move the snake by 1 square
 
         # If snake collided with food, update accordingly
@@ -161,11 +159,10 @@ def main():
             snake.score += 1
             food.randomize_position()
 
-        snake.draw(surface)
-        food.draw(surface)
-        screen.blit(surface, (0,0))
+        snake.draw(screen)
+        food.draw(screen)
 
-        text = myfont.render("Score {0}".format(snake.score), 1, (0,0,0))
+        text = myfont.render("Score {0}".format(snake.score), 1, (0, 0, 0))
         screen.blit(text, (5,10))
         pygame.display.update()
 
